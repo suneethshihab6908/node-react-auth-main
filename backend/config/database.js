@@ -1,10 +1,12 @@
-const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database(":memory:");
+const mongoose = require("mongoose");
 
-db.serialize(() => {
-  db.run(
-    "CREATE TABLE users (id INTEGER PRIMARY KEY, email TEXT, password TEXT, reset_token TEXT)"
-  );
-});
+const uri = process.env.MONGODB_URI; // Database name in URI
 
-module.exports = db;
+async function connectDB() {
+  if (mongoose.connection.readyState === 0) {
+    await mongoose.connect(uri);
+  }
+  return mongoose.connection;
+}
+
+module.exports = connectDB;

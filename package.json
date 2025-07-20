@@ -4,7 +4,8 @@
   "description": "Authentication system with NodeJS (ExpressJS) + ReactJS + TailwindCSS + SQLite",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon backend/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,13 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "sqlite3": "^5.1.7"
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
